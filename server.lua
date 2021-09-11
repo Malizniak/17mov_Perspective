@@ -7,7 +7,6 @@ MySQL.ready(function()
 		PlayersData[v.identifier] = {mode = v.perspective, changed = false}
 	end
 	scriptReady = true
-	print(json.encode(PlayersData))
 end)
 
 RegisterServerEvent('DevCloud_Perspective:RequestMyMode')
