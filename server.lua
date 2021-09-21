@@ -38,9 +38,7 @@ function CreateThisClient(identifier)
 end
 
 AddEventHandler("playerDropped", function()
-	local source = 1 
 	local identifier = GetIdentifier(source)
-	print(identifier, PlayersData[identifier].changed)
 	if PlayersData[identifier].changed then
 		PlayersData[identifier].changed = false
 		MySQL.Async.execute('UPDATE Perspectives SET perspective = @mode WHERE identifier = @id', {
