@@ -17,7 +17,7 @@ RegisterCommand("aiming", function()
     end
 end)
 
-RegisterKeyMapping("aiming", "Zmiana Perspektywy Podczas Celowania", "MOUSE_BUTTON", "MOUSE_RIGHT")
+RegisterKeyMapping("aiming", "Change Shooting Perspective While Aiming", "MOUSE_BUTTON", "MOUSE_RIGHT")
 
 local table = {[1] = 3, [3] = 1}
 RegisterCommand(Config.CommandString, function()
