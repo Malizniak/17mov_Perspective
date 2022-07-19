@@ -1,6 +1,15 @@
--- https://dev-cloud.pl --
+-- https://devcloud.tebex.io/ --
+local ShootingMode
+CreateThread(function()
+    local savedInfo = GetResourceKvpInt("perspective")
+    if savedInfo == 0 then
+        SetResourceKvpInt("perspective", Config.DefaultShootingMode)
+        ShootingMode = Config.DefaultShootingMode
+    else
+        ShootingMode = savedInfo
+    end
+end)
 
-ShootingMode = 3
 RegisterCommand("aiming", function()
     Citizen.Wait(0)
     while IsPlayerFreeAiming(PlayerId()) or IsControlPressed(0, 25) do
@@ -19,21 +28,12 @@ end)
 
 RegisterKeyMapping("aiming", "Change Shooting Perspective While Aiming", "MOUSE_BUTTON", "MOUSE_RIGHT")
 
-local table = {[1] = 3, [3] = 1}
+local table = {[1] = 3, [3] = 1} -- Convert first to third, and third to first
+
 RegisterCommand(Config.CommandString, function()
-    print(table[ShootingMode])
     ShootingMode = table[ShootingMode]
-    SetNotificationTextEntry('STRING')
-	AddTextComponentString("Zmieniono Perspektywe Celowania")
-	DrawNotification(0,1)
-    TriggerServerEvent("DevCloud_Perspective:UpdateMyMode", ShootingMode)
+    ShowNotification()
+    SetResourceKvpInt("perspective", ShootingMode)
 end)
 
-RegisterNetEvent("DevCloud_Perspective:SendModeToClient")
-AddEventHandler("DevCloud_Perspective:SendModeToClient", function(mode)
-    ShootingMode = mode
-end)
-
-TriggerServerEvent("DevCloud_Perspective:RequestMyMode")
-
--- https://dev-cloud.pl --
+-- https://devcloud.tebex.io/ --
