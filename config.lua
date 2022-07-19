@@ -1,8 +1,17 @@
--- https://dev-cloud.pl --
+-- https://devcloud.tebex.io/ --
 
 Config = {}
-Config.UsingIdentifier = "license:"  -- Can be Steam, discord etc..
+
 Config.DefaultShootingMode = 1      -- 1 => First Person, 3 => Third Person
 Config.CommandString = "perspective"
 
--- https://dev-cloud.pl --
+function ShowNotification()
+    SetNotificationTextEntry('STRING')
+	AddTextComponentString("Perspective Changed!")
+	DrawNotification(0,1)
+
+    -- TriggerEvent("QBCore:Notify", "Perspective Changed!", "success")
+end
+
+-- https://devcloud.tebex.io/--
+
