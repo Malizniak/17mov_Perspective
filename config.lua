@@ -1,4 +1,4 @@
--- https://devcloud.tebex.io/ --
+-- https://store.17mov.pro/ --
 
 Config = {}
 
@@ -10,8 +10,8 @@ function ShowNotification()
 	AddTextComponentString("Perspective Changed!")
 	DrawNotification(0,1)
 
-    -- TriggerEvent("QBCore:Notify", "Perspective Changed!", "success")
+-- 	TriggerEvent("QBCore:Notify", "Perspective Changed!", "success")
 end
 
--- https://devcloud.tebex.io/--
+-- https://store.17mov.pro/ --
 
