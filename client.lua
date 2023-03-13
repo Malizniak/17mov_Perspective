@@ -1,4 +1,4 @@
--- https://devcloud.tebex.io/ --
+-- https://store.17mov.pro/ --
 local ShootingMode
 CreateThread(function()
     local savedInfo = GetResourceKvpInt("perspective")
@@ -36,4 +36,4 @@ RegisterCommand(Config.CommandString, function()
     SetResourceKvpInt("perspective", ShootingMode)
 end)
 
--- https://devcloud.tebex.io/ --
+-- https://store.17mov.pro/ --
