@@ -1,4 +1,4 @@
--- https://17movement.net/ --
+-- https://store.17mov.pro/ --
 local ShootingMode
 CreateThread(function()
     local savedInfo = GetResourceKvpInt("perspective")
@@ -13,11 +13,13 @@ end)
 RegisterCommand("aiming", function()
     Citizen.Wait(0)
     while IsPlayerFreeAiming(PlayerId()) or IsControlPressed(0, 25) do
-        Citizen.Wait(0)
-       
+        local sleep = 100
+        
         if GetSelectedPedWeapon(PlayerPedId()) == 100416529 then
+            sleep = 0
             ShowHudComponentThisFrame(14)
         end
+        
         if ShootingMode == 1 then
             if GetSelectedPedWeapon(PlayerPedId()) ~= 100416529 then
                 HideHudComponentThisFrame(14)
@@ -28,13 +30,15 @@ RegisterCommand("aiming", function()
                 break
             end
         end
+
+        Citizen.Wait(sleep)
     end
     if ShootingMode == 1 then
         SetFollowPedCamViewMode(2)
     end
 end)
 
-RegisterKeyMapping("aiming", "Change Shooting Perspective While Aiming", "MOUSE_BUTTON", "MOUSE_RIGHT")
+RegisterKeyMapping("aiming", "Muda a perspectiva de tiro ao mirar", "MOUSE_BUTTON", "MOUSE_RIGHT")
 
 local table = {[1] = 3, [3] = 1} -- Convert first to third, and third to first
 
@@ -44,4 +48,4 @@ RegisterCommand(Config.CommandString, function()
     SetResourceKvpInt("perspective", ShootingMode)
 end)
 
--- https://17movement.net/ --
+-- https://store.17mov.pro/ --
