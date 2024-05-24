@@ -38,7 +38,7 @@ RegisterCommand("aiming", function()
     end
 end)
 
-RegisterKeyMapping("aiming", "Muda a perspectiva de tiro ao mirar", "MOUSE_BUTTON", "MOUSE_RIGHT")
+RegisterKeyMapping("aiming", "Aiming", "MOUSE_BUTTON", "MOUSE_RIGHT")
 
 local table = {[1] = 3, [3] = 1} -- Convert first to third, and third to first
 
